@@ -1,74 +1,162 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-weight: normal;
+    font-family: 'Lexend', sans-serif;
 }
 
-body {
-    background-color: #2F4254;
-    display: flex;
+.container {
+    width: 900px;
+    margin: auto;
+    background-color: rgba(22, 104, 228, 0.925);
 }
-/* 
 
-.titolo {
-    color: #feba02;
-    font-size: 2rem;
+.text-center {
     text-align: center;
-    font-weight: bold;
-} */
-
-.calculator-grid {
-    font-family: 'Roboto', sans-serif;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    width: 100%;
-    min-height: 100vh;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
-.calculator-grid>button {
-    cursor: pointer;
-    border: 1px solid #e5e5e5;
-    background-color: #ffffff;
-    font-size: 2rem;
-    -webkit-box-shadow: 0px 6px 0px #e5e5e5;
-    -moz-box-shadow: 0px 6px 0px #e5e5e5;
-    box-shadow: 0px 6px 0px #e5e5e5;
-    margin: 10px;
-    position: relative;
-}
-
-.calculator-grid>button:active {
-    -webkit-box-shadow: 0px 2px 0px #ffffff;
-    -moz-box-shadow: 0px 2px 0px #ffffff;
-    box-shadow: 0px 2px 0px #ffffff;
-    top: 4px;
-}
-
-.span-two {
-    grid-column: span 2;
-}
-
-.output {
-    font-family: 'Orbitron', sans-serif;
-    grid-column: 1 / -1;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
-    background-color:#A7AF7C;
-    -webkit-box-shadow: 0px 6px 0px #51564D;
-    -moz-box-shadow: 0px 6px 0px #51564D;
-    box-shadow: 0px 6px 0px #51564D;
-    color: #393c30;
-    font-weight: bold;
-    font-size: 1.5rem;
+.icon-grid {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 20px;
-    word-wrap: break-word;
-    word-break: break-all;
-    margin: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#griglia>div {
+    width: 100px;
+    height: 100px;
+    margin: 1em;
+    background-color: #b80adbdc;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#timer {
+    padding: 10px 0;
+}
+
+.icon {
+    font-size: 80px;
+    text-align: center;
+    visibility: visible !important;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: wait;
+}
+
+.show {
+    visibility: visible !important;
+    opacity: 100 !important;
+    animation-name: rotazione-carta;
+    animation-duration: .5s;
+    background-color: white;
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+}
+
+.find {
+    animation-name: indovinato;
+    animation-duration: .5s;
+    background-color: rgba(247, 212, 16, 0.56);
+    border: 1px solid #3889c4;
+    border-radius: 10px;
+}
+
+.button {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #b80adbdc;
+    border: 1px solid #3889c4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #16486c;
+    border: none;
+}
+
+#modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#modal.active {
+    display: flex;
+}
+
+#modal h2 {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 400px;
+    }
+
+    #griglia>div {
+        margin: 5px 5px;
+        width: 70px;
+        height: 70px;
+    }
+
+    .icon {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 230px;
+    }
+
+    #griglia>div {
+        margin: 5px 5px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon {
+        font-size: 20px;
+    }
+}
+
+@keyframes indovinato {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotazione-carta {
+    from {
+        transform: perspective(300px) rotate3d(0, 1, 0, 80deg);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: perspective(300px) rotate3d(0, 1, 0, -10deg);
+        animation-timing-function: ease-in;
+    }
+
+    to {
+        transform: perspective(300px);
+        animation-timing-function: ease-in;
+    }
 }

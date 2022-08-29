@@ -3,43 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <title>Calculator</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Memory Game</title>
 </head>
 
 <body>
-    <div class="calculator-grid">
-        <div class="output">
-            0
-        </div>
-        <button class="span-two" onclick="outputClear()">C</button>
-        <button>DEL</button>
-        <button onclick="displayOperatore('/')">&divide</button>
-        <button onclick="displayNumber('1')" value="1">1</button>
-        <button onclick="displayNumber('2')" value="2">2</button>
-        <button onclick="displayNumber('3')" value="3">3</button>
-        <button onclick="displayOperatore('*')">x</button>
-        <button onclick="displayNumber('4')" value="4">4</button>
-        <button onclick="displayNumber('5')" value="5">5</button>
-        <button onclick="displayNumber('6')" value="6">6</button>
-        <button onclick="displayOperatore('+')">+</button>
-        <button onclick="displayNumber('7')" value="7">7</button>
-        <button onclick="displayNumber('8')" value="8">8</button>
-        <button onclick="displayNumber('9')" value="9">9</button>
-        <button onclick="displayOperatore('-')">-</button>
-        <button onclick="addDecimal('.')">.</button>
-        <button>0</button>
-        <button class="span-two" onclick="calcolatrice()">=</button>
+
+    <div class="container icon-grid" id="griglia">
+    </div>
+    <div class="container text-center">
+        <input type="button" id="button" class="button" onclick=startGame() value="Ricomincia">
+        <div id="timer"></div>
     </div>
 
+    <div id="modal">
+        <div class="content">
+            <h2>Congratulazioni! Hai risolto il gioco in: </h2>
+            <p><span id="tempoTrascorso"> </span> </p>
+            <p><input type="button" class="button" onclick=playAgain() value="Altra partita"></p>
+        </div>
+    </div>
 
-
-    <script src="js/script.js"></script>
+    <script src="js/memory.js">
+    </script>
 </body>
 
 </html>
